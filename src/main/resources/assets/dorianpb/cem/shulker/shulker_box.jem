@@ -1,0 +1,20 @@
+{
+	"texture": "textures/entity/shulker/shulker.png",
+	"textureSize": [128, 64],
+	"models": [
+		{
+			"model": "shulker_box_lid_overlay.jpm",
+			"part": "lid",
+			"id": "lid",
+			"translate": [0, 0, 0],
+			"rotate": [0, 0, 0]
+		},
+		{
+			"model": "shulker_box_base_overlay.jpm",
+			"part": "base",
+			"id": "base",
+			"translate": [0, 0, 0],
+			"rotate": [0, 0, 0]
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"invertAxis": "xy",
+	"translate": [0, 0, 0],
+	"boxes": [
+		{"coordinates": [-8, 4, -8, 16, 12, 16], "textureOffset": [0, 0], "sizeAdd": 0.01},
+		{"coordinates": [-8, 8, -8, 16, 0, 16], "textureOffset": [32, 0]},
+		{"coordinates": [-3, 15, -3, 6, 0, 6], "textureOffset": [40, 52]},
+		{"coordinates": [-3, 15, -3, 6, 1, 6], "textureOffset": [22, 52]}
+	],
+	"submodels": [
+		{
+			"id": "L2",
+			"texture": "textures/entity/shulker/shulker_details.png",
+			"invertAxis": "xy",
+			"translate": [0, 0, 0],
+			"boxes": [
+				{"coordinates": [-8, 0, -8, 16, 16, 16], "textureOffset": [64, 0], "sizeAdd": 0.5}
+			]
+		}
+	]
+}

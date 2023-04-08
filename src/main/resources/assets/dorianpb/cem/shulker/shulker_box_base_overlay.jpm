@@ -1,0 +1,8 @@
+{
+	"texture": "textures/entity/shulker/shulker.png",
+	"invertAxis": "xy",
+	"translate": [0, 0, 0],
+	"boxes": [
+		{"coordinates": [-8, 0.01, -8, 16, 8, 16], "textureOffset": [0, 28]}
+	]
+}

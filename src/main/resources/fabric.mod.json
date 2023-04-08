@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "sea-o-shulk",
+  "version": "${mod_version} ${minecraft_version}",
+
+  "name": "Sea of Shulkers",
+  "description": "Find Your stuff\n§3Created by: §bTheSeaBlurban",
+  "authors": [
+    "TheSeaBlurban"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/sea-o-shulk/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.seablu.seaofshulkers.SeaOfShulkers"
+    ],
+    "cem": [
+      "com.seablu.seaofshulkers.external.ShulkerEntitiesInit"
+    ]
+  },
+  "mixins": [
+    "sea-o-shulk.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "1.19.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

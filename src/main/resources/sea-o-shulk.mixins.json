@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.seablu.seaofshulkers.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "ShulkerBoxBlockEntityMixin"
+  ],
+  "client": [
+    "BuiltinModelItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
