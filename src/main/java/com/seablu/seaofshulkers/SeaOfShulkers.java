@@ -1,23 +1,16 @@
 package com.seablu.seaofshulkers;
 
 import com.google.common.collect.ImmutableList;
-import net.dorianpb.cem.internal.util.CemFairy;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ShulkerBoxBlockEntity;
-import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.registry.Registries;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.InputStream;
 import java.util.AbstractMap;
 import java.util.List;
 import java.util.stream.Stream;
@@ -39,28 +32,28 @@ public class SeaOfShulkers implements ModInitializer {
 	}
 
 	static {
-		ALT_SHULKER_BOX_TEXTURES = (List) Stream.of(
-				new AbstractMap.SimpleEntry<String,String>("end_case","(?=.*case)(?=.*ender).*"),
-				new AbstractMap.SimpleEntry<String,String>("display_case","(?=.*case)(?=.*display).*"),
-				new AbstractMap.SimpleEntry<String,String>("diamond_case","(?=.*case)(?=.*diamond).*"),
-				new AbstractMap.SimpleEntry<String,String>("emerald_case","(?=.*case)(?=.*emerald).*"),
-				new AbstractMap.SimpleEntry<String,String>("end_trunk","(?=.*trunk)(?=.*ender).*"),
-				new AbstractMap.SimpleEntry<String,String>("obsidian_trunk","(?=.*trunk)(?=.*obsidian).*"),
-				new AbstractMap.SimpleEntry<String,String>("red_trunk","(?=.*trunk)(?=.*red).*"),
-				new AbstractMap.SimpleEntry<String,String>("snow_trunk","(?=.*trunk)(?=.*snow).*"),
-				new AbstractMap.SimpleEntry<String,String>("cyan_trunk","(?=.*trunk)(?=.*cyan).*"),
-				new AbstractMap.SimpleEntry<String,String>("black_trunk","(?=.*trunk)(?=.*black).*"),
-				new AbstractMap.SimpleEntry<String,String>("brown_trunk",".*(trunk).*"),
-				new AbstractMap.SimpleEntry<String,String>("jungle_log","(?=.*(log|stump))(?=.*jungle).*"),
-				new AbstractMap.SimpleEntry<String,String>("doak_log","(?=.*(log|stump))(?=.*dark oak).*"),
-				new AbstractMap.SimpleEntry<String,String>("birch_log","(?=.*(log|stump))(?=.*birch).*"),
-				new AbstractMap.SimpleEntry<String,String>("acacia_log","(?=.*(log|stump))(?=.*acacia).*"),
-				new AbstractMap.SimpleEntry<String,String>("spruce_log","(?=.*(log|stump))(?=.*spruce).*"),
-				new AbstractMap.SimpleEntry<String,String>("oak_log",".*(log|stump).*"),
-				new AbstractMap.SimpleEntry<String,String>("slab_case","(?=.*case)(?=.*slab).*"),
-				new AbstractMap.SimpleEntry<String,String>("wood_case",".*(case).*")
-		).map((entry) -> {
-			return new AbstractMap.SimpleEntry<Identifier,String>(new Identifier("dorianpb:cem/shulker/"+"shulker_" + entry.getKey() +".png"), entry.getValue());
-		}).collect(ImmutableList.toImmutableList());
+		ALT_SHULKER_BOX_TEXTURES = Stream.of(
+				new AbstractMap.SimpleEntry<>("end_case","(?=.*case)(?=.*ender).*"),
+				new AbstractMap.SimpleEntry<>("display_case","(?=.*case)(?=.*display).*"),
+				new AbstractMap.SimpleEntry<>("diamond_case","(?=.*case)(?=.*diamond).*"),
+				new AbstractMap.SimpleEntry<>("emerald_case","(?=.*case)(?=.*emerald).*"),
+				new AbstractMap.SimpleEntry<>("end_trunk","(?=.*trunk)(?=.*ender).*"),
+				new AbstractMap.SimpleEntry<>("obsidian_trunk","(?=.*trunk)(?=.*obsidian).*"),
+				new AbstractMap.SimpleEntry<>("red_trunk","(?=.*trunk)(?=.*red).*"),
+				new AbstractMap.SimpleEntry<>("snow_trunk","(?=.*trunk)(?=.*snow).*"),
+				new AbstractMap.SimpleEntry<>("cyan_trunk","(?=.*trunk)(?=.*cyan).*"),
+				new AbstractMap.SimpleEntry<>("black_trunk","(?=.*trunk)(?=.*black).*"),
+				new AbstractMap.SimpleEntry<>("brown_trunk",".*(trunk).*"),
+				new AbstractMap.SimpleEntry<>("jungle_log","(?=.*(log|stump))(?=.*jungle).*"),
+				new AbstractMap.SimpleEntry<>("doak_log","(?=.*(log|stump))(?=.*dark oak).*"),
+				new AbstractMap.SimpleEntry<>("birch_log","(?=.*(log|stump))(?=.*birch).*"),
+				new AbstractMap.SimpleEntry<>("acacia_log","(?=.*(log|stump))(?=.*acacia).*"),
+				new AbstractMap.SimpleEntry<>("spruce_log","(?=.*(log|stump))(?=.*spruce).*"),
+				new AbstractMap.SimpleEntry<>("oak_log",".*(log|stump).*"),
+				new AbstractMap.SimpleEntry<>("slab_case","(?=.*case)(?=.*slab).*"),
+				new AbstractMap.SimpleEntry<>("wood_case",".*(case).*")
+		).map(
+				(entry) -> new AbstractMap.SimpleEntry<>(new Identifier("dorianpb:cem/shulker/"+"shulker_" + entry.getKey() +".png"), entry.getValue())
+		).collect(ImmutableList.toImmutableList());
 	}
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "sea-o-shulk",
-  "version": "${mod_version} ${minecraft_version}",
+  "version": "${version}",
 
   "name": "Sea of Shulkers",
   "description": "Find Your stuff\n§3Created by: §bTheSeaBlurban",
@@ -9,7 +9,7 @@
     "TheSeaBlurban"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://cblu.toppysites.com/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 

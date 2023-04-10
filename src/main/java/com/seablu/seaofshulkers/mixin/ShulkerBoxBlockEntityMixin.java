@@ -26,6 +26,9 @@ import java.util.regex.Pattern;
 @Mixin(ShulkerBoxBlockEntity.class)
 public abstract class ShulkerBoxBlockEntityMixin extends LootableContainerBlockEntity implements ShulkerBlockEntityAddons {
     @Shadow @Final public static String ITEMS_KEY;
+
+    @Shadow protected abstract Text getContainerName();
+
     String nameString = "";
     int shulkerType = -1;
     int decorItemType = -1;
@@ -70,11 +73,6 @@ public abstract class ShulkerBoxBlockEntityMixin extends LootableContainerBlockE
         return newNBT;
     }
 
-    /*@Override
-    public BlockEntityUpdateS2CPacket toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this.pos, (BlockEntityType.SHULKER_BOX, this.toInitialChunkDataNbt()));
-    }*/
-
     @Override
     public BlockEntityUpdateS2CPacket toUpdatePacket() {
         this.writeNbt(new NbtCompound());
@@ -83,12 +81,17 @@ public abstract class ShulkerBoxBlockEntityMixin extends LootableContainerBlockE
 
     @Override
     public void updateShulkerType(){
-        nameString = this.getName().getString();
-        //System.out.println("Shulker item name: "+nameString);
+        if (this.hasCustomName()) {
+            nameString = this.getCustomName().getString();
+            //System.out.println("Shulker item name: " + nameString);
+        }
+        else {
+            nameString = this.getContainerName().getString();
+        }
         if (this.hasCustomName()) {
             // Get shulker type based on the name
             int typeId = 0;
-            for (AbstractMap.Entry<Identifier,String> entry: SeaOfShulkers.ALT_SHULKER_BOX_TEXTURES) {
+            for (AbstractMap.Entry<Identifier, String> entry : SeaOfShulkers.ALT_SHULKER_BOX_TEXTURES) {
                 Pattern pattern = Pattern.compile(entry.getValue());
                 Matcher matcher = pattern.matcher(nameString.toLowerCase(Locale.ROOT));
                 if (matcher.find()) {
@@ -96,17 +99,9 @@ public abstract class ShulkerBoxBlockEntityMixin extends LootableContainerBlockE
                     shulkerType = typeId;
                     return;
                 }
-                typeId ++;
+                typeId++;
             }
         }
         shulkerType = -1;
-    }
-
-    public void fromClientTag(NbtCompound tag){
-        readNbt(tag);
-    }
-
-    public NbtCompound toClientTag(NbtCompound tag){
-        return toInitialChunkDataNbt();
     }
 }
